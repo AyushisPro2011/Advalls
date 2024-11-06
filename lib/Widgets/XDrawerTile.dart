@@ -47,14 +47,29 @@ class XDrawerTile extends StatelessWidget {
             title: Text(
               text,
               style: TextStyle(
-                  fontSize: 18.0,
-                  color: colors.onSurface,
-                  fontWeight: FontWeight.bold),
+                fontSize: 18.0,
+                color: colors.onSurface,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  Shadow(
+                    offset: const Offset(1.0, 1.0),
+                    blurRadius: 1.0,
+                    color: colors.outline,
+                  ),
+                ],
+              ),
             ),
             leading: Icon(
               icon,
               color: colors.primary,
               size: 40.0,
+              shadows: [
+                Shadow(
+                  offset: const Offset(1.0, 1.0),
+                  blurRadius: 1.0,
+                  color: colors.outline,
+                ),
+              ],
             ),
           ),
         ),

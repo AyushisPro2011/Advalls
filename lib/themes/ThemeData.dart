@@ -10,4 +10,4 @@ ThemeData lightmode = ThemeData(
   tertiary: Colors.blueGrey.shade100,
   outline: Colors.black26,
 ));
-ThemeData darkmode = ThemeData(colorScheme: ColorScheme.dark());
+ThemeData darkmode = ThemeData(colorScheme: const ColorScheme.dark());

@@ -15,14 +15,14 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: const Homepage(),
       theme: lightmode,
       title: "AdValls",
       initialRoute: "/homepage",
       routes: {
-        '/homepage': (context) => Homepage(),
-        '/settings': (context) => SettingsPage(),
-        '/browse': (context) => BrowseWallpapersPage(),
+        '/homepage': (context) => const Homepage(),
+        '/settings': (context) => const SettingsPage(),
+        '/browse': (context) => const BrowseWallpapersPage(),
       },
     );
   }

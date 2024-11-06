@@ -1,4 +1,5 @@
 import 'package:advalls/Widgets/XDrawer.dart';
+import 'package:advalls/Widgets/XIconLabelButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -29,14 +30,26 @@ class SettingsPage extends StatelessWidget {
               onPressed: () {
                 SystemNavigator.pop();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.exit_to_app,
                 size: 25.0,
               ))
         ],
       ),
-      body: Column(),
-      drawer: Xdrawer(),
+      body: const Column(
+        children: [
+          XIconLabelButton(
+            icon: Icons.toggle_off,
+            label: "Yay",
+          ),
+          XIconLabelButton(
+            icon: Icons.import_contacts,
+            label: "Lol",
+            subLabel: "Lorem Ipsum dolor emet",
+          )
+        ],
+      ),
+      drawer: const Xdrawer(),
     );
   }
 }

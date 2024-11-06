@@ -1,7 +1,6 @@
 import 'package:advalls/Widgets/XDrawerTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:io' as io;
 
 class Xdrawer extends StatelessWidget {
   const Xdrawer({super.key});
@@ -15,14 +14,23 @@ class Xdrawer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-              padding: EdgeInsets.all(15.0),
-              margin: EdgeInsets.only(top: 25.0),
+              padding: const EdgeInsets.all(15.0),
+              margin: const EdgeInsets.only(top: 25.0),
               decoration: BoxDecoration(
                   border: Border(
                       bottom: BorderSide(color: colors.outline, width: 4.0))),
               child: Text(
                 "AdValls",
-                style: TextStyle(fontSize: 40.0),
+                style: TextStyle(
+                  fontSize: 40.0,
+                  shadows: [
+                    Shadow(
+                      offset: const Offset(1.0, 1.0),
+                      blurRadius: 1.0,
+                      color: colors.outline,
+                    ),
+                  ],
+                ),
               )),
           Column(
             children: [

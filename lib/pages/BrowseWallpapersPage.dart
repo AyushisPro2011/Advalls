@@ -30,14 +30,14 @@ class BrowseWallpapersPage extends StatelessWidget {
               onPressed: () {
                 SystemNavigator.pop();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.exit_to_app,
                 size: 25.0,
               ))
         ],
       ),
-      body: Column(),
-      drawer: Xdrawer(),
+      body: const Column(),
+      drawer: const Xdrawer(),
     );
   }
 }
