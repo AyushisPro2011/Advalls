@@ -19,17 +19,29 @@ class XIconLabelButton extends StatelessWidget {
     }
 
     return Container(
-      padding: const EdgeInsets.all(5.0),
-      margin: const EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(5.0),
+      margin: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
-          color: colors.primary, borderRadius: BorderRadius.circular(10.0)),
+          borderRadius: BorderRadius.circular(10),
+          color: colors.primary,
+          boxShadow: [
+            BoxShadow(
+              color: colors.outline,
+              offset: Offset(-1.5, -1.5),
+              blurRadius: 1.0,
+            ),
+            BoxShadow(
+                color: colors.outline,
+                offset: Offset(1.5, 1.5),
+                blurRadius: 1.0)
+          ]),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Icon(
             icon,
             size: 50.0,
-            color: colors.onPrimary,
+            color: colors.secondary,
           ),
           Expanded(
             child: Padding(
@@ -60,7 +72,7 @@ class XIconLabelButton extends StatelessWidget {
                           subLabel!,
                           style: TextStyle(
                             color: colors.secondary,
-                            fontSize: 15.0,
+                            fontSize: 12.0,
                             shadows: [
                               Shadow(
                                 offset: const Offset(1.0, 1.0),
@@ -75,7 +87,7 @@ class XIconLabelButton extends StatelessWidget {
                   : Text(
                       label,
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 18.0,
                         color: colors.onPrimary,
                         fontWeight: FontWeight.bold,
                         shadows: [

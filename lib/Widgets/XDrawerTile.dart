@@ -52,7 +52,7 @@ class XDrawerTile extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 shadows: [
                   Shadow(
-                    offset: const Offset(1.0, 1.0),
+                    offset: const Offset(0.5, 0.5),
                     blurRadius: 1.0,
                     color: colors.outline,
                   ),

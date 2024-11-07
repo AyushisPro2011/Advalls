@@ -17,14 +17,14 @@ class BrowseWallpapersPage extends StatelessWidget {
             Text(
               "Wallpapers",
               style: TextStyle(
-                  color: colors.onPrimary,
+                  color: colors.primary,
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ],
         ),
-        backgroundColor: colors.primary,
+        backgroundColor: colors.inverseSurface,
         actions: [
           IconButton(
               onPressed: () {
