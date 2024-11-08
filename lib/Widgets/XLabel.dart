@@ -9,7 +9,7 @@ class XLabel extends StatelessWidget {
     final ColorScheme colors = Theme.of(context).colorScheme;
 
     return Padding(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       child: Text(
         text,
         style: TextStyle(

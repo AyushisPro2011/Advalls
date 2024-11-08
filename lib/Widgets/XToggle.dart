@@ -1,44 +1,33 @@
 import 'package:flutter/material.dart';
 
-class XToggle extends StatefulWidget {
+class XToggle extends StatelessWidget {
   const XToggle(
       {super.key,
       required this.label,
       required this.sublabel,
-      required this.doIfOn});
+      required this.doIfOn,
+      required this.value});
   final String label, sublabel;
   final void Function(bool)? doIfOn;
-  @override
-  State<XToggle> createState() => _XToggleState();
-}
-
-class _XToggleState extends State<XToggle> {
-  var state = false;
-  void Onclick(bool) {
-    setState(() {
-      state = !state;
-      widget.doIfOn!(state);
-    });
-  }
-
+  final bool value;
   @override
   Widget build(BuildContext context) {
     final ColorScheme colors = Theme.of(context).colorScheme;
     return Container(
-        padding: EdgeInsets.all(5.0),
-        margin: EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(5.0),
+        margin: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: colors.primary,
             boxShadow: [
               BoxShadow(
                 color: colors.outline,
-                offset: Offset(-1.5, -1.5),
+                offset: const Offset(-1.5, -1.5),
                 blurRadius: 1.0,
               ),
               BoxShadow(
                   color: colors.outline,
-                  offset: Offset(1.5, 1.5),
+                  offset: const Offset(1.5, 1.5),
                   blurRadius: 1.0)
             ]),
         child:
@@ -51,7 +40,7 @@ class _XToggleState extends State<XToggle> {
               children: [
                 Container(
                   child: Text(
-                    widget.label,
+                    label,
                     textAlign: TextAlign.start,
                     style: TextStyle(
                       color: colors.onPrimary,
@@ -68,7 +57,7 @@ class _XToggleState extends State<XToggle> {
                   ),
                 ),
                 Text(
-                  widget.sublabel,
+                  sublabel,
                   style: TextStyle(
                     color: colors.secondary,
                     fontSize: 12.0,
@@ -85,8 +74,8 @@ class _XToggleState extends State<XToggle> {
             ),
           )),
           Switch(
-            value: state,
-            onChanged: Onclick,
+            value: value,
+            onChanged: doIfOn,
             activeColor: colors.onPrimary,
           ),
         ]));

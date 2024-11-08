@@ -1,8 +1,11 @@
 import 'package:advalls/Widgets/XDrawer.dart';
 import 'package:advalls/Widgets/XIconLabelButton.dart';
 import 'package:advalls/Widgets/XLabel.dart';
+import 'package:advalls/Widgets/XToggle.dart';
+import 'package:advalls/themes/themeProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -41,42 +44,47 @@ class SettingsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            XLabel(text: "Settings"),
-            XIconLabelButton(
+            const XLabel(text: "Settings"),
+            const XIconLabelButton(
               icon: Icons.refresh,
               label: "Refetch Wallpapers",
               subLabel:
                   "Checks for all the present wallpapers and downloads new wallpapers if any are missing or new ones are available",
             ),
-            XIconLabelButton(
+            const XIconLabelButton(
               icon: Icons.delete,
               label: "Delete Wallpapers",
               subLabel: "Choose one or more wallpapers to delete from storage",
             ),
-            XIconLabelButton(
-              icon: Icons.dark_mode,
+            XToggle(
               label: "Theme",
-              subLabel: "Toggle Light Mode or Dark Mode",
+              sublabel: "Toggle Light Mode or Dark Mode",
+              doIfOn: (value) => {
+                Provider.of<Themeprovider>(context, listen: false)
+                    .toggleThemes()
+              },
+              value:
+                  Provider.of<Themeprovider>(context, listen: false).isDarkMode,
             ),
-            XIconLabelButton(
+            const XIconLabelButton(
               icon: Icons.access_time_sharp,
               label: "Time before each check",
               subLabel:
                   "The time to wait after a check to check again for the required time for changing the wallpaper",
             ),
-            XIconLabelButton(
+            const XIconLabelButton(
               icon: Icons.book,
               label: "App Licenses",
               subLabel: "The licenses related to the App",
             ),
-            XIconLabelButton(
+            const XIconLabelButton(
               icon: Icons.person,
               label: "About Author",
               subLabel: "More about Ayush Gupta",
             ),
-            XIconLabelButton(
+            const XIconLabelButton(
               icon: Icons.code,
               label: "Source Code",
               subLabel:

@@ -2,8 +2,10 @@ import 'package:advalls/Widgets/XDrawer.dart';
 import 'package:advalls/Widgets/XIconLabelButton.dart';
 import 'package:advalls/Widgets/XLabel.dart';
 import 'package:advalls/Widgets/XToggle.dart';
+import 'package:advalls/themes/themeProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -44,29 +46,31 @@ class Homepage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            XLabel(text: "Current Wallpaper"),
+            const XLabel(text: "Current Wallpaper"),
             Center(
               child: Container(
-                decoration: BoxDecoration(border: Border.all(width: 2.0)),
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2.0, color: colors.outline)),
                 height: 300,
                 width: 170,
                 child: Image.asset(
-                  "",
+                  fit: BoxFit.cover,
+                  "lib/assets/WallpaperTest.jpg",
                 ),
               ),
             ),
-            XLabel(text: "Options"),
-            XIconLabelButton(
+            const XLabel(text: "Options"),
+            const XIconLabelButton(
               icon: Icons.swap_horizontal_circle_sharp,
               label: "Change wallpaper",
-              subLabel: "Swap Current Wallpaper with a randome new wallpaper",
+              subLabel: "Swap Current Wallpaper with a random new wallpaper",
             ),
-            XIconLabelButton(
+            const XIconLabelButton(
               icon: Icons.calendar_month_rounded,
               label: "Scehdule Change",
               subLabel: "Select How frequently your wallpaper should change",
             ),
-            XIconLabelButton(
+            const XIconLabelButton(
               icon: Icons.add,
               label: "Add Wallpapers!",
               subLabel: "Add wallpapers to the collection from your gallery",
@@ -75,7 +79,11 @@ class Homepage extends StatelessWidget {
               label: "Toggle App Functionality",
               sublabel:
                   "Turn the wallpaper changing and all processes related to it on or off",
-              doIfOn: (value) => print(value.toString()),
+              doIfOn: (value) =>
+                  Provider.of<Themeprovider>(context, listen: false)
+                      .toggleThemes(),
+              value:
+                  Provider.of<Themeprovider>(context, listen: false).isDarkMode,
             )
           ],
         ),

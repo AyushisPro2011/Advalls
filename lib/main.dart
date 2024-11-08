@@ -1,11 +1,15 @@
 import 'package:advalls/pages/BrowseWallpapersPage.dart';
 import 'package:advalls/pages/Homepage.dart';
 import 'package:advalls/pages/SettingsPage.dart';
-import 'package:advalls/themes/ThemeData.dart';
+import 'package:advalls/themes/themeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const App());
+  runApp(ChangeNotifierProvider(
+    create: (context) => Themeprovider(),
+    child: const App(),
+  ));
 }
 
 class App extends StatelessWidget {
@@ -16,7 +20,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const Homepage(),
-      theme: lightmode,
+      theme: Provider.of<Themeprovider>(context).themeData,
       title: "AdValls",
       initialRoute: "/homepage",
       routes: {

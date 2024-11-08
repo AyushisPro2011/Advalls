@@ -19,20 +19,20 @@ class XIconLabelButton extends StatelessWidget {
     }
 
     return Container(
-      padding: EdgeInsets.all(5.0),
-      margin: EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
+      margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: colors.primary,
           boxShadow: [
             BoxShadow(
               color: colors.outline,
-              offset: Offset(-1.5, -1.5),
+              offset: const Offset(-1.5, -1.5),
               blurRadius: 1.0,
             ),
             BoxShadow(
                 color: colors.outline,
-                offset: Offset(1.5, 1.5),
+                offset: const Offset(1.5, 1.5),
                 blurRadius: 1.0)
           ]),
       child: Row(
