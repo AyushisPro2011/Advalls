@@ -4,8 +4,23 @@ import 'package:advalls/pages/SettingsPage.dart';
 import 'package:advalls/themes/themeProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:workmanager/workmanager.dart';
 
-void main() {
+void callbackDispatcher() {
+  Workmanager().executeTask((task, inputData) {
+    print("Background Task has been Ran");
+    return Future.value(true);
+  });
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+
+  Workmanager().registerPeriodicTask("fiveMinuteTask", "simplePeriodicTask",
+      frequency: const Duration(minutes: 15),
+      initialDelay: const Duration(seconds: 5));
+
   runApp(ChangeNotifierProvider(
     create: (context) => Themeprovider(),
     child: const App(),
