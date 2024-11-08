@@ -1,4 +1,5 @@
 import 'package:advalls/Widgets/XDrawer.dart';
+import 'package:advalls/Widgets/XDropDown.dart';
 import 'package:advalls/Widgets/XIconLabelButton.dart';
 import 'package:advalls/Widgets/XLabel.dart';
 import 'package:advalls/Widgets/XToggle.dart';
@@ -68,11 +69,23 @@ class SettingsPage extends StatelessWidget {
               value:
                   Provider.of<Themeprovider>(context, listen: false).isDarkMode,
             ),
-            const XIconLabelButton(
-              icon: Icons.access_time_sharp,
-              label: "Time before each check",
-              subLabel:
-                  "The time to wait after a check to check again for the required time for changing the wallpaper",
+            // const XIconLabelButton(
+            //   icon: Icons.access_time_sharp,
+            //   label: "Time before each check",
+            //   subLabel:
+            //       "The time to wait after a check to check again for the required time for changing the wallpaper",
+            // ),
+            const XDropDown(
+              label: "Wait before Check",
+              sublabel:
+                  "Time to wait before after a check for checking for the required time to change wallpaper",
+              list: [
+                "5 Minutes",
+                "10 Minutes",
+                "15 Minutes",
+                "2 Minutes",
+                "1 Minute"
+              ],
             ),
             const XIconLabelButton(
               icon: Icons.book,

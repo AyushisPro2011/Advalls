@@ -1,4 +1,5 @@
 import 'package:advalls/Widgets/XDrawer.dart';
+import 'package:advalls/Widgets/XDropDown.dart';
 import 'package:advalls/Widgets/XIconLabelButton.dart';
 import 'package:advalls/Widgets/XLabel.dart';
 import 'package:advalls/Widgets/XToggle.dart';
@@ -65,11 +66,10 @@ class Homepage extends StatelessWidget {
               label: "Change wallpaper",
               subLabel: "Swap Current Wallpaper with a random new wallpaper",
             ),
-            const XIconLabelButton(
-              icon: Icons.calendar_month_rounded,
-              label: "Scehdule Change",
-              subLabel: "Select How frequently your wallpaper should change",
-            ),
+            const XDropDown(
+                label: "Schedule Change",
+                sublabel: "Select How frequently your wallpaper should change",
+                list: ["1 Day", "3 days", "5 Days", "12 Hours", " 6 Hours"]),
             const XIconLabelButton(
               icon: Icons.add,
               label: "Add Wallpapers!",
