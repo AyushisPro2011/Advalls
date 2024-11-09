@@ -3,11 +3,8 @@ import 'package:advalls/Widgets/XDropDown.dart';
 import 'package:advalls/Widgets/XIconLabelButton.dart';
 import 'package:advalls/Widgets/XLabel.dart';
 import 'package:advalls/Widgets/XToggle.dart';
-import 'package:advalls/themes/themeProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
-import 'package:workmanager/workmanager.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -61,11 +58,13 @@ class Homepage extends StatelessWidget {
               ),
             ),
             const XLabel(text: "Options"),
-            const XIconLabelButton(
-              icon: Icons.swap_horizontal_circle_sharp,
-              label: "Change wallpaper",
-              subLabel: "Swap Current Wallpaper with a random new wallpaper",
-            ),
+            XIconLabelButton(
+                icon: Icons.swap_horizontal_circle_sharp,
+                label: "Change wallpaper",
+                subLabel: "Swap Current Wallpaper with a random new wallpaper",
+                onclick: () async {
+                  print("Wallpaper Change");
+                }),
             const XDropDown(
                 label: "Schedule Change",
                 sublabel: "Select How frequently your wallpaper should change",
@@ -76,15 +75,11 @@ class Homepage extends StatelessWidget {
               subLabel: "Add wallpapers to the collection from your gallery",
             ),
             XToggle(
-              label: "Toggle App Functionality",
-              sublabel:
-                  "Turn the wallpaper changing and all processes related to it on or off",
-              doIfOn: (value) =>
-                  Provider.of<Themeprovider>(context, listen: false)
-                      .toggleThemes(),
-              value:
-                  Provider.of<Themeprovider>(context, listen: false).isDarkMode,
-            )
+                label: "Toggle App Functionality",
+                sublabel:
+                    "Turn the wallpaper changing and all processes related to it on or off",
+                doIfOn: (value) => print(value.toString()),
+                value: true)
           ],
         ),
       ),

@@ -79,13 +79,7 @@ class SettingsPage extends StatelessWidget {
               label: "Wait before Check",
               sublabel:
                   "Time to wait before after a check for checking for the required time to change wallpaper",
-              list: [
-                "5 Minutes",
-                "10 Minutes",
-                "15 Minutes",
-                "2 Minutes",
-                "1 Minute"
-              ],
+              list: ["15 Minutes", "20 Minutes", "30 Minutes", "1 Hour"],
             ),
             const XIconLabelButton(
               icon: Icons.book,
